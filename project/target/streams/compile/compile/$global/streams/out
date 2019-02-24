@@ -1,0 +1,7 @@
+[error] D:\Project\histream\project\Dependencies.scala:65:49: object compiler is not a member of package scalapb
+[error]   val grpc = "io.grpc" % "grpc-netty" % scalapb.compiler.Version.grpcJavaVersion
+[error]                                                 ^
+[error] D:\Project\histream\project\Dependencies.scala:66:86: object compiler is not a member of package scalapb
+[error]   val scalapbDependency = "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion
+[error]                                                                                      ^
+[error] two errors found

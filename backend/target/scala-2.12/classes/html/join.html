@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JoinGame</title>
+  <script>
+    function soloUnLimit() {
+      window.location.href = "play?roomType=2"
+    }
+
+    function twoUnLimit() {
+      window.location.href = "play?roomType=4"
+    }
+
+    function twoPk() {
+      window.location.href = "play?roomType=5"
+    }
+  </script>
+  <style>
+    body{
+      background-position: right;
+    }
+    #join-div{
+      padding-top: 10%;
+      width: 300px;
+      height: 200px;
+      margin-left: 62%;
+      display: flex;
+      flex-direction: column;
+    }
+    #join-div button{
+      width: 150px;
+      background-color: #e9a132;
+      height: 30px;
+      border-radius: 5px;
+      border: solid 1px  #e9a132;
+      margin-top: 30px;
+    }
+    #mine{
+      width: 50px;
+      background-color: #74a161;
+      height: 30px;
+      border-radius: 5px;
+      border: solid 1px  #74a161;
+    }
+    #mine-div{
+      padding-top: 5px;
+    }
+    #two-cor{
+      margin-left: 15%;
+    }
+    #pk{
+      margin-left: 5%;
+    }
+
+  </style>
+</head>
+<body background="/smallBreak/static/img/back.jpg">
+  <div id="mine-div">
+    <button id="mine">我的</button>
+  </div>
+  <div id="join-div">
+    <button onclick="soloUnLimit()" id="solo">个人模式</button>
+    <button onclick="twoUnLimit()" id="two-cor">合作模式</button>
+    <button onclick="twoPk()" id="pk">pk模式</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0mD:\Project\smallBreak\shared\src\main\scala\com\neo\sk\smallBreak\shared\model\Constant.scala:13:26: Reference to uninitialized value column[0m
+[0m[[0m[33mwarn[0m] [0m[0m  val brickW = borderH / column.toFloat[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

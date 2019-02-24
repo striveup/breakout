@@ -1,0 +1,11 @@
+[0m[[0m[33mwarn[0m] [0m[0mD:\Project\smallBreak\frontend\src\main\scala\com\neo\sk\smallBreak\GridOnFront.scala:124:38: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: CompleteMsgFrontServer, DeadAndFinish(_, _), DeadButUnFinish(_, _), FailMsgFrontServer(_), FailMsgServer(_), HeartBeat, InitMsg(_, _, _), InitMsg4Pk(_), Key4Front(_, _, _), ObserveGame, OtherDead, OtherLeft, PlayGame, RoomMsg(_, _), Sync(_), TalkMsg(_), TalkMsg4Server(_), UserDead(_, _), UserLeft, WsMsgServerWrap(_)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    actionMap.get(frameCount).foreach{[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Project\smallBreak\frontend\src\main\scala\com\neo\sk\smallBreak\NetGameHolder.scala:257:17: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: WsMsgServerWrap(_)[0m
+[0m[[0m[33mwarn[0m] [0m[0m                data match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere was one deprecation warning (since 0.6.20); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere was one unchecked warning; re-run with -unchecked for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mfour warnings found[0m

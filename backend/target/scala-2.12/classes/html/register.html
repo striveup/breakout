@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>register</title>
+  <style>
+    body{
+      /*background:url("../img/back.jpg") no-repeat;*/
+      background-size: cover;
+      /*margin-right: 0;*/
+    }
+    #register-div{
+      width: 50%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      margin-left: 20%;
+      margin-top: 13%;
+      align-content: center;
+    }
+    input, button{
+      width: 50%;
+      margin:5px auto;
+    }
+    input{
+      height: 20px;
+      border-radius: 5px;
+    }
+    #submit{
+      background-color: #e9a132;
+      border-radius: 5px;
+      height: 25px;
+      border: solid 1px #e9a132;
+    }
+
+  </style>
+  <script>
+  function register() {
+    var name = document.getElementById("name").value
+    var pw = document.getElementById("pw").value
+    if(name === "" || pw === ""){
+      window.alert("账号或密码不能为空")
+    }
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.onreadystatechange = function () {
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        var rsp = JSON.parse(xmlHttp.response)
+        if(rsp.errCode === 0){
+          window.location.href = "joinPage"
+        }else if(rsp.errCode === 100001){
+          window.alert("该用户名已存在")
+        }
+      }
+    }
+    xmlHttp.open("GET", "/smallBreak/registerPost?name=" + name + '&pw=' + pw, true);
+    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlHttp.send();
+  }
+
+  </script>
+</head>
+<body background="/smallBreak/static/img/back.jpg">
+  <div id="register-div">
+    <input id="name" placeholder="账号">
+    <input id="pw" placeholder="密码" type="password">
+    <button id="submit" onclick="register()">注 册</button>
+  </div>
+</body>
+</html>

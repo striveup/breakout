@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="SBT" />
+    <profile name="sbt 1" modules="histream_716,hiStream,smallBreak" />
+    <profile name="sbt 2" modules="shared,frontend">
+      <option name="featureWarnings" value="true" />
+      <plugins>
+        <plugin path="C:\Users\yuwei\.ivy2\cache\org.scala-js\scalajs-compiler_2.12.6\jars\scalajs-compiler_2.12.6-0.6.23.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 3" modules="backend,.jvm-shared">
+      <option name="featureWarnings" value="true" />
+    </profile>
+  </component>
+</project>

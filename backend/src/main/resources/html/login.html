@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+  <style>
+    body{
+      /*background:url("../img/back.jpg") no-repeat;*/
+      background-size: cover;
+      /*margin-right: 0;*/
+    }
+    #login-div{
+      width: 50%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      margin-left: 20%;
+      margin-top: 13%;
+      align-content: center;
+    }
+    input, #submit, #other-div{
+      width: 50%;
+      margin:5px auto;
+    }
+    input{
+      height: 20px;
+      border-radius: 5px;
+    }
+    #submit{
+      background-color: #e9a132;
+      border-radius: 5px;
+      height: 25px;
+      border: solid 1px #e9a132;
+    }
+    #other-div button{
+      background-color: #74a161;
+      border-radius: 5px;
+      border: solid 1px #74a161;
+      margin-right: 5px;
+    }
+  </style>
+  <script>
+    function register() {
+      window.location.href = "register"
+    }
+
+    function traveler() {
+      window.location.href = "travel"
+    }
+
+    function login() {
+      var name = document.getElementById("name").value
+      var pw = document.getElementById("pw").value
+      if(name === "" || pw === ""){
+        window.alert("账号以及密码不能为空")
+      }else {
+        var xmlHttp = new XMLHttpRequest()
+        xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            var rsp = JSON.parse(xmlHttp.response)
+            if (rsp.errCode === 0) {
+              window.location.href = "joinPage"
+            } else if (rsp.errCode === 100001) {
+              window.alert("账号或密码错误")
+            }
+          }
+        }
+        xmlHttp.open("GET", "/smallBreak/loginPost?name=" + name + '&pw=' + pw, true);
+        xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttp.send();
+      }
+    }
+  </script>
+</head>
+<body background="/smallBreak/static/img/back.jpg">
+  <div id="login-div">
+    <input placeholder="账号" id="name">
+    <input placeholder="密码" type="password" id="pw">
+    <button id="submit" onclick="login()">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+    <div id="other-div">
+      <button id="traveler" onclick="traveler()">游&nbsp;&nbsp;客</button>
+      <button id="register" onclick="register()">注&nbsp;&nbsp;册</button>
+    </div>
+  </div>
+</body>
+</html>

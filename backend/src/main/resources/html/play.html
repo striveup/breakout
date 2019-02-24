@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>justTest</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href="/smallBreak/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="/smallBreak/static/css/reset.css">
+  <style>
+    .comment { width: 250px; top:13%;left: 650px; position: absolute; background: #fff; padding: 10px; border: 1px solid #DDD; border-radius: 5px; }
+    .comment h3 { height: 28px; line-height: 28px }
+    .com_form { width: 100%; position: relative }
+    .input { width: 99%; height: 50px; border: 1px solid #ccc }
+    .com_form p { height: 28px; line-height: 28px; position: relative; margin-top: 10px; }
+    span.emotion { margin-left:10px; cursor: pointer }
+    span.emotion:hover { background-position: 2px -28px }
+    .qqFace { margin-top: 4px; background: #fff; padding: 2px; border: 1px #dfe6f6 solid; }
+    .qqFace table td { padding: 0px; }
+    .qqFace table td img { cursor: pointer; border: 1px #fff solid; }
+    .qqFace table td img:hover { border: 1px #0066cc solid; }
+    .sub_btn {background-color:  #e9a132; border: solid 1px  #e9a132; border-radius: 3px; height: 20px;
+    margin-left: 5px}
+    .sub_btn:hover {  cursor: pointer;}
+    #show{
+      width: 99%;
+      height: 130px;
+      border: solid 1px lightgray;
+    }
+    #GameView{
+      border: solid 1px darkgray;
+      position: absolute;
+      left: 150px;
+      top:13%;
+      z-index: 10;
+      width: 500px;
+    }
+    #MsgView{
+      position: absolute;
+      left: 150px;
+      top:13%;
+      z-index: 20;
+    }
+
+    body{
+      /*background:url("../img/back.jpg") no-repeat;*/
+      background-size: cover;
+      /*margin-right: 0;*/
+      display: flex;
+      flex-direction: row;
+    }
+    #p{
+      padding-top: 3px;
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+    }
+
+    #heart-span{
+     margin-left: 23%;
+      margin-right: 5px;
+    }
+    #heart:hover,#shit:hover{
+      cursor: pointer;
+    }
+
+  </style>
+
+</head>
+<body background="/smallBreak/static/img/back.jpg">
+  <button onclick="back()">返回</button>
+  <div id = "canvas-div">
+    <canvas id="GameView" tabindex="1" ></canvas>
+    <canvas id="MsgView" ></canvas>
+  </div>
+  <div class="comment">
+    <canvas id="scoreView"></canvas>
+    <div class="com_form">
+      <div id="show"></div>
+        <input type="textarea"  class="input" id="saytext" name="saytext">
+      <div id="p">
+        <input type="button" id="sub_btn" class="sub_btn" value="对方">
+        <input type="button" class = "sub_btn" id="broad" value="广播">
+        <span class="emotion"><img src="../img/smile.png" width="20px"></span>
+        <span id="heart-span"><img id="heart" src="../img/heart.png" width="25px"></span>
+        <span><img id="shit" src="../img/shit.png" width="25px"></span>
+  </div>
+  </div>
+  </div>
+  <img src="/smallBreak/static/img/bomb.png" style="width: 0" id="bomb">
+  <img src="/smallBreak/static/img/col.png" style="width: 0" id="col">
+  <img src="/smallBreak/static/img/row.png" style="width: 0" id="row">
+  <img src="/smallBreak/static/img/pig.png" style="width: 0" id="pig">
+<script  src="/smallBreak/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/smallBreak/static/js/jquery.qqFace.js"></script>
+  <script type="text/javascript" src="/smallBreak/static/sjsout/frontend-fastopt.js"></script>
+  <script type="text/javascript">
+
+    $(function(){
+
+      $('.emotion').qqFace({
+
+        id : 'facebox',
+
+        assign:'saytext',
+
+        path:'/smallBreak/static/arclist/'	//表情存放的路径
+
+      });
+
+      // $(".sub_btn").click(function(){
+      //
+      //   var str = $("#saytext").val();
+      //
+      //   $("#saytext").innerHTML = ""
+      //
+      //   $("#show").html(str);
+      //
+      // });
+
+    });
+    function back(){
+      console.log("=====")
+      window.location.href = 'joinPage'
+    }
+    function textOnChange() {
+      var text = document.getElementById("saytext")
+      var str = text.value
+      var tem = replace_em(str)
+      console.log(tem+"-----")
+      document.getElementById("textdiv").innerHTML =  tem
+    }
+
+    //查看结果
+
+    function replace_em(str){
+
+      str = str.replace(/\</g,'&lt;');
+
+      str = str.replace(/\>/g,'&gt;');
+
+      str = str.replace(/\n/g,'<br/>');
+
+      str = str.replace(/\[em_([0-9]*)\]/g,'<img src="/smallBreak/static/arclist/$1.gif" border="0" />');
+
+      return str;
+
+    }
+
+
+
+  </script>
+
+
+
+</body>
+</html>
